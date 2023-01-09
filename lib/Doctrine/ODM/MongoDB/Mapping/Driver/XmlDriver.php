@@ -696,8 +696,9 @@ class XmlDriver extends FileDriver
     protected function loadMappingFile($file): array
     {
         $result = [];
-
-        $this->validateSchema($file);
+        
+        // Avoid validating the schema to allow using doctrine extensions
+        // $this->validateSchema($file);
 
         $xmlElement = simplexml_load_file($file);
 
